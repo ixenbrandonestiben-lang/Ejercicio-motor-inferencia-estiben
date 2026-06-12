@@ -1,8 +1,10 @@
 import json
 
+
 # ================================================================
 # SISTEMA EXPERTO: Diagnóstico de PC.
 # ================================================================
+
 
 # Nivel 1: Base de Conocimiento con reglas adicionales
 base_de_conocimiento = [
@@ -13,9 +15,9 @@ base_de_conocimiento = [
     {"id": "R05", "descripcion": "Infección por malware", "condiciones": ["enciende", "inicia_lento", "ventilador_siempre_activo"], "conclusion": "Escanear con antivirus", "confianza": 0.72},
     {"id": "R06", "descripcion": "Driver o RAM dañada", "condiciones": ["enciende", "pantalla_azul_frecuente"], "conclusion": "Actualizar drivers y testear RAM", "confianza": 0.87},
     {"id": "R07", "descripcion": "Sobrecalentamiento", "condiciones": ["enciende", "se_apaga_solo", "calor_excesivo"], "conclusion": "Limpiar ventiladores y pasta térmica", "confianza": 0.90},
-    {"id": "R11", "descripcion": "Falla de red inalámbrica", "condiciones": ["enciende", "sin_internet", "wifi_no_detectado"], "conclusion": "Reinstalar driver de tarjeta Wi-Fi", "confianza": 0.75},
-    {"id": "R12", "descripcion": "Problema de teclado", "condiciones": ["enciende", "teclas_no_responden", "teclado_bloqueado"], "conclusion": "Limpiar teclado o probar con USB externo", "confianza": 0.82},
-    {"id": "R13", "descripcion": "Falla de sistema operativo", "condiciones": ["enciende", "no_inicia_windows", "error_boot"], "conclusion": "Reparar sector de arranque o reinstalar SO", "confianza": 0.95},
+    {"id": "R08", "descripcion": "Falla de red inalámbrica", "condiciones": ["enciende", "sin_internet", "wifi_no_detectado"], "conclusion": "Reinstalar driver de tarjeta Wi-Fi", "confianza": 0.75},
+    {"id": "R09", "descripcion": "Problema de teclado", "condiciones": ["enciende", "teclas_no_responden", "teclado_bloqueado"], "conclusion": "Limpiar teclado o probar con USB externo", "confianza": 0.82},
+    {"id": "R10", "descripcion": "Falla de sistema operativo", "condiciones": ["enciende", "no_inicia_windows", "error_boot"], "conclusion": "Reparar sector de arranque o reinstalar SO", "confianza": 0.95},
 ]
 
 # Diccionario de preguntas para el usuario
