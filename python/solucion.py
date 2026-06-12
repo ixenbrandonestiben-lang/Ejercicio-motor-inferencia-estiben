@@ -44,7 +44,9 @@ preguntas_de_diagnostico = {
     "error_boot": "¿Aparece un mensaje de 'No boot device found'?"
 }
 
+#===========================================
 # Nivel 3: Encadenamiento hacia atrás
+#===========================================
 def encadenamiento_atras(meta_id):
     try:
     
@@ -57,7 +59,10 @@ def encadenamiento_atras(meta_id):
         print(f"Error en encadenamiento hacia atrás: {e}")
         return None
 
+#===========================================
 # Nivel 4: Exportar red
+#===========================================
+
 def exportar_red():
     try:
         red = {"nodos": [], "aristas": []}
@@ -71,8 +76,11 @@ def exportar_red():
     except Exception as e:
         print(f"Error al exportar red: {e}")
         return None
-    
+
+#===========================================    
 # Nivel 2: Diagnóstico múltiple ordenado
+#===========================================
+
 def procesar_diagnostico(hechos):
     try:
             
@@ -87,8 +95,11 @@ def procesar_diagnostico(hechos):
             print(f"   Recomendación: {r['conclusion']}")
     except Exception as e:
         print(f"Error al procesar diagnóstico: {e}")    
-        
+
+#===========================================        
 # Interfaz principal
+#===========================================
+
 def iniciar_sistema():
     try:
     
@@ -104,6 +115,7 @@ def iniciar_sistema():
     except Exception as e:
         print(f"Error en el sistema: {e}")
         
+#===========================================
         
 if __name__ == "__main__":
     iniciar_sistema()

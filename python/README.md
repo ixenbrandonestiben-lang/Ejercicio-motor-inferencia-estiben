@@ -10,25 +10,33 @@
 ```texto
 
     * base_de_conocimiento[]
+
         contiene problemas comunes en la computadora, estos estan registrados con un 'id', 'descripcion' (describe la falla que se presenta), 'condiciones' (posibles causas del problema), 'conslusion' (brnda una recomendacion para solucionar el problema.), 'confianza' (brinda un porcentaje de seguridad a la solucion completa del problema)
     
     * preguntas_de_diagnostico.
+
         aqui tenemos registrados para detectar el podible problema.
 
     * encadenamiento_atras
+
         esta funcion busca en la base de datos la regla especifica por si ID y devuelve la lista de precondiciones necesarias.
     
     *exportar_red:
+
         construye un diccionario que reprecenta los nodos (sintomas y reglas) y sus conexiones, convirtiendolo en formato JSON para su posible uso en herramientas de visualizacion de grafos.
 
     * procesar_diagnositco:
+
         Filtra, ordena y presenta.
         muestra las soluciones mas probables primero, ayudando a priorizar las reparaciones.
     
     * iniciar_sistema
+
       Automatiza la recoleccion de informacion. Sin esta funcion, tendriamos que ingresar los datos manualmente en el codigo.
       Esta funcion hace que todo sea mucho mas facil de utilizar.
+
 ```
+
 - ¿Cuál es la diferencia principal entre un sistema experto y un programa de software tradicional?
 
   Un sistema experto esta diseñado para solucionar un problema en base a los conocimientos que nosotros le brindemos enfocandolo en un area. Por lo tantop imita el razonamiento humano.
@@ -133,4 +141,4 @@
 
 * BRANDON ESTIBEN IXEN TELEGUARIO.
 * ixenbrandonestiben@gmail.com
-  
+* link del repositorio: ** https://github.com/ixenbrandonestiben-lang/Ejercicio-motor-inferencia-estiben **s  
