@@ -6,6 +6,7 @@
     Mejorar el codigo agregandole nuevas funciones, usando problemas comunes presentes en la mayor parte de computadoras y asi entregar la solucione de una mejor manera, facilitando el diagnóstico de las máquinas y sus distintos compontes.
 
 ## Explicacion de componentes:
+
 ```texto
 
     * base_de_conocimiento[]
