@@ -1,7 +1,7 @@
 import json
 
 # ================================================================
-# SISTEMA EXPERTO: Diagnóstico de PC (Versión Mejorada)
+# SISTEMA EXPERTO: Diagnóstico de PC.
 # ================================================================
 
 # Nivel 1: Base de Conocimiento con reglas adicionales
@@ -19,7 +19,7 @@ base_de_conocimiento = [
 ]
 
 # Diccionario de preguntas para el usuario
-PREGUNTAS = {
+preguntas_de_diagnostico = {
     "no_enciende": "¿El equipo NO enciende (sin luces, sin sonido)?",
     "sin_luces": "¿No hay ninguna luz LED encendida?",
     "sin_sonido": "¿No se escucha ningún sonido al encender?",
@@ -77,7 +77,7 @@ def iniciar_sistema():
     
     print("--- SISTEMA EXPERTO DE DIAGNÓSTICO ---")
     hechos = set()
-    for sintoma, pregunta in PREGUNTAS.items():
+    for sintoma, pregunta in preguntas_de_diagnostico.items():
         resp = input(f"{pregunta} (s/n): ").strip().lower()
         if resp == 's':
             hechos.add(sintoma)
