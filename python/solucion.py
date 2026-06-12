@@ -44,45 +44,63 @@ preguntas_de_diagnostico = {
 
 # Nivel 3: Encadenamiento hacia atrás
 def encadenamiento_atras(meta_id):
-    for regla in base_de_conocimiento:
-        if regla['id'] == meta_id:
-            return regla['condiciones']
-    return None
+    try:
+    
+        for regla in base_de_conocimiento:
+            if regla['id'] == meta_id:
+                return regla['condiciones']
+        return None
+    
+    except Exception as e:
+        print(f"Error en encadenamiento hacia atrás: {e}")
+        return None
 
 # Nivel 4: Exportar red
 def exportar_red():
-    red = {"nodos": [], "aristas": []}
-    for r in base_de_conocimiento:
-        red["nodos"].append({"id": r['id'], "tipo": "conclusión", "desc": r['descripcion']})
-        for cond in r['condiciones']:
-            if {"id": cond, "tipo": "síntoma"} not in red["nodos"]:
-                red["nodos"].append({"id": cond, "tipo": "síntoma"})
-            red["aristas"].append({"origen": cond, "destino": r['id']})
-    return json.dumps(red, indent=4, ensure_ascii=False)
-
+    try:
+        red = {"nodos": [], "aristas": []}
+        for r in base_de_conocimiento:
+            red["nodos"].append({"id": r['id'], "tipo": "conclusión", "desc": r['descripcion']})
+            for cond in r['condiciones']:
+                if {"id": cond, "tipo": "síntoma"} not in red["nodos"]:
+                    red["nodos"].append({"id": cond, "tipo": "síntoma"})
+                red["aristas"].append({"origen": cond, "destino": r['id']})
+        return json.dumps(red, indent=4, ensure_ascii=False)
+    except Exception as e:
+        print(f"Error al exportar red: {e}")
+        return None
+    
 # Nivel 2: Diagnóstico múltiple ordenado
 def procesar_diagnostico(hechos):
-    aplicables = [r for r in base_de_conocimiento if set(r['condiciones']).issubset(hechos)]
-    ranking = sorted(aplicables, key=lambda x: x['confianza'], reverse=True)
-    
-    print("\n--- RESULTADOS DEL DIAGNÓSTICO ---")
-    if not ranking:
-        print("No se encontraron coincidencias exactas.")
-    for i, r in enumerate(ranking, 1):
-        print(f"{i}. [{r['id']}] {r['descripcion']} (Confianza: {r['confianza']*100:.0f}%)")
-        print(f"   Recomendación: {r['conclusion']}")
-
+    try:
+            
+        aplicables = [r for r in base_de_conocimiento if set(r['condiciones']).issubset(hechos)]
+        ranking = sorted(aplicables, key=lambda x: x['confianza'], reverse=True)
+        
+        print("\n--- RESULTADOS DEL DIAGNÓSTICO ---")
+        if not ranking:
+            print("No se encontraron coincidencias exactas.")
+        for i, r in enumerate(ranking, 1):
+            print(f"{i}. [{r['id']}] {r['descripcion']} (Confianza: {r['confianza']*100:.0f}%)")
+            print(f"   Recomendación: {r['conclusion']}")
+    except Exception as e:
+        print(f"Error al procesar diagnóstico: {e}")    
+        
 # Interfaz principal
 def iniciar_sistema():
+    try:
     
-    print("--- SISTEMA EXPERTO DE DIAGNÓSTICO ---")
-    hechos = set()
-    for sintoma, pregunta in preguntas_de_diagnostico.items():
-        resp = input(f"{pregunta} (s/n): ").strip().lower()
-        if resp == 's':
-            hechos.add(sintoma)
-    
-    procesar_diagnostico(hechos)
-
+        print("--- SISTEMA EXPERTO DE DIAGNÓSTICO ---")
+        hechos = set()
+        for sintoma, pregunta in preguntas_de_diagnostico.items():
+            resp = input(f"{pregunta} (s/n): ").strip().lower()
+            if resp == 's':
+                hechos.add(sintoma)
+        
+        procesar_diagnostico(hechos)
+        
+    except Exception as e:
+        print(f"Error en el sistema: {e}")
+        
 if __name__ == "__main__":
     iniciar_sistema()
