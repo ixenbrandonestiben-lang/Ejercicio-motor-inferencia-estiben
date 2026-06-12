@@ -102,5 +102,6 @@ def iniciar_sistema():
     except Exception as e:
         print(f"Error en el sistema: {e}")
         
+        
 if __name__ == "__main__":
     iniciar_sistema()
